@@ -151,6 +151,8 @@ function TPocoHud3:AddDmgPopByUnit(sender,unit,offset,damage,death,head,dmgType)
 end
 local _lastAttk, _lastAttkpid = 0,0
 function TPocoHud3:AddDmgPop(sender,hitPos,unit,offset,damage,death,head,dmgType)
+	if type(damage) == 'string' then damage = tonumber(damage) end
+	
 	local Opt = O:get('popup')
 	if self.dead then return end
 	local pid = self:_pid(sender)
